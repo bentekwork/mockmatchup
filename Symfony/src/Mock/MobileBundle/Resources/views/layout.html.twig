@@ -1,0 +1,33 @@
+<!DOCTYPE html> 
+<html> 
+	<head> 
+	<title>Mock Matchup</title> 
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+	<meta name="apple-mobile-web-app-capable" content="yes" />	
+	{% block scripts %}
+	<link rel="stylesheet" href="{{ asset('bundles/MockMobile/css/mock.min.css') }}" />
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.1/jquery.mobile.structure-1.1.1.min.css" />
+	<link rel="stylesheet" href="{{ asset('bundles/MockMobile/css/mock_custom.css') }}" />
+	<link rel="stylesheet" href="{{ asset('bundles/MockMobile/js/jquery.carousel.css') }}" />
+	<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.js"></script>
+
+	{% endblock %}
+	
+</head> 
+<body> 
+
+<div data-role="page" data-theme="a" data-form="ui-body-a">
+	<div data-role="header">
+		{% render "MockMobileBundle:Default:nav" %}
+	</div>
+
+	<div data-role="content" role="main">
+		  {% block content %}
+		  {% endblock %}	
+	</div><!-- /content -->
+
+</div><!-- /page -->
+
+</body>
+</html>

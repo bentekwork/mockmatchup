@@ -1,0 +1,7 @@
+parameters:
+#    mock_match.example.class: Mock\MatchBundle\Example
+
+services:
+#    mock_match.example:
+#        class: %mock_match.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

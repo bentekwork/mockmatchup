@@ -1,0 +1,7 @@
+parameters:
+#    mock_user.example.class: Mock\UserBundle\Example
+
+services:
+#    mock_user.example:
+#        class: %mock_user.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

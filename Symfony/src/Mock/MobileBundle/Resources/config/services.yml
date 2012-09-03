@@ -1,0 +1,7 @@
+parameters:
+#    mock_mobile.example.class: Mock\MobileBundle\Example
+
+services:
+#    mock_mobile.example:
+#        class: %mock_mobile.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

@@ -1,0 +1,26 @@
+MockMobileBundle:
+    resource: "@MockMobileBundle/Resources/config/routing.yml"
+    prefix:   /
+
+MockUserBundle:
+    resource: "@MockUserBundle/Resources/config/routing.yml"
+    prefix:   /
+
+MockMatchBundle:
+    resource: "@MockMatchBundle/Resources/config/routing.yml"
+    prefix:   /
+
+user:
+    resource: "@MockUserBundle/Controller/UserController.php"
+    type:     annotation
+    prefix:   /
+    
+matchup:        
+    resource: "@MockMatchBundle/Controller/DefaultController.php"
+    type:     annotation
+    prefix:   /
+
+# Internal routing configuration to handle ESI
+#_internal:
+#   resource: "@FrameworkBundle/Resources/config/routing/internal.xml"
+#   prefix:   /_internal

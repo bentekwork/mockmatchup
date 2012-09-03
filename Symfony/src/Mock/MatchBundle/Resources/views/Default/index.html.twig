@@ -1,0 +1,91 @@
+{% extends "MockMobileBundle::layout.html.twig" %}
+{% block scripts %}
+{{ parent() }}
+<script src="{{ asset('bundles/MockMobile/js/jquery.carousel.min.js') }}"></script>
+<script src="{{ asset('bundles/MockMobile/js/mock.js') }}"></script>
+{% endblock %}
+
+{% block content %}
+<div class="ui-grid-b">
+	<div class="ui-block-a team1_teams team1">
+		<div class ="show_name">
+		
+		</div>
+		<div class="thumb">
+		<ul>
+		{% for team in teams %}
+		     <li data-team="{{team.team_key}}" title="{{ team.name }}"><img src="{{ team.logo }}" /></li>
+		{% endfor %}
+		</ul>
+		</div>
+	</div>
+	<div class="ui-block-b results">
+		<form id="mockmatchform" data-ajax="false" action="/matchup" method="post">
+			<div class="hideme control-group">
+				<label class="control-label" for="username">League</label>
+		    	<div class="controls">
+					<input type="text" id="username" required="required" name="league" value="263.l.46750" />
+				</div>
+			</div>
+
+			<div class="hideme control-group">
+				<label class="control-label" for="username">Left Team Key</label>
+		    	<div class="controls">
+					<input type="text" id="left_team" required="required" name="left_team_key" value="{{ left_team_key }}" />
+				</div>
+			</div>
+			<div class="hideme control-group">
+				<label class="control-label" for="username">Right Team Key</label>
+		    	<div class="controls">
+					<input type="text" id="right_team" required="required" name="right_team_key" value="{{ right_team_key }}" />
+				</div>
+			</div>
+			<div class="week_select">
+				<div class="controlgroup" data-role="controlgroup" >
+				   <select data-iconpos="left" data-mini="true" name="week" id="week" class="team_select">
+						{% for week in weeks %}
+							{% if week.num == selected_week %}
+								<option selected value="{{week.num}}">{{week.named}}</option>
+							{% else %}
+								<option value="{{week.num}}">{{week.named}}</option>
+							{% endif %}
+						{% endfor %}
+						
+				   </select>
+				</div>		
+			</div>
+		</form>
+		<div class = "total">
+			<h3>{{total.left_team}} - {{total.right_team}}</h3>
+		</div>
+		<div class="results_scroll">
+			<table>
+			{% for score in scoreboard %}
+				{% if score.stat_winner == 'left_team' %}
+					<tr><td class="win score">{{ score.left_stat }}</td><td>{{ score.cat_name }}</td><td class="score">{{ score.right_stat }}</td></tr>
+				{% elseif score.stat_winner == 'right_team' %}
+					<tr><td class="score">{{ score.left_stat }}</td><td>{{ score.cat_name }}</td><td class="win score">{{ score.right_stat }}</td></tr>
+				{% else %}	
+					<tr><td class="score">{{ score.left_stat }}</td><td>{{ score.cat_name }}</td><td class="score">{{ score.right_stat }}</td></tr>
+				{% endif %}
+			{% endfor %}
+			</table>
+		</div>
+	</div>
+
+	<div class="ui-block-c team2 team2_teams">
+		<div class ="show_name">
+	
+		</div>
+		<div class="thumb2">
+		<ul>
+		{% for team in teams %}
+	     	<li data-team="{{team.team_key}}" title="{{ team.name }}"><img src="{{ team.logo }}" /></li>
+		{% endfor %}
+		</ul>
+		</div>
+	</div>
+</div><!-- /grid-b -->
+
+{% endblock %}
+

@@ -1,0 +1,137 @@
+/*
+* jQuery Mobile Framework v1.1.1
+* http://jquerymobile.com
+*
+* Copyright 2012 jQuery Foundation and other contributors
+* Dual licensed under the MIT or GPL Version 2 licenses.
+* http://jquery.org/license
+*
+*/
+
+/* Smartphones (portrait) ----------- */
+@media only screen 
+and (max-width : 768px) {
+	
+	.thumb img, .thumb2 img{
+		max-width: 60px;
+	}
+}
+.hideme {
+	display:none;
+}
+.total {
+	text-align:center;
+}
+.total h3{
+	margin:2px 0;
+}
+.team_name {
+	display:none;
+	height:0%;
+	width:0%;
+	font-size:3px;
+}
+.show_name {
+	text-align:center;
+	height:20px;
+	font-size:8px;
+	font-weight:bold;
+	opacity:0;
+}
+.ui-mobile-viewport, .ui-page {
+	background-color:#000;
+}	
+.thumb ul li.large, .thumb2 ul li.large{
+	height: 100px;
+	width:100px;
+	float:left;
+}
+
+.ui-content .ui-block-a {
+	width:30%;
+}
+.ui-content .ui-block-b {
+	width:40%;
+}
+.ui-content .ui-block-c {
+	width:30%;
+}
+table {
+	border-spacing: 0;
+	border-collapse: collapse;
+}
+.thumb, .thumb2 {
+	margin: 0 auto;
+	height:300px;
+	overflow:hidden;
+}
+.thumb ul, .thumb2 ul {
+	margin:0px;
+	padding:0px;
+}
+.thumb ul li img, .thumb2 ul li img{
+	padding-top:5px;
+}
+.thumb ul li, .thumb2 ul li{
+	margin: 0 auto;
+	list-style-type: none;
+	height: 60px;
+	text-align: center;
+	width:50px;
+}
+.week_select{
+	text-align: center;
+	margin:0 auto;
+	padding:0 0 10px;
+}
+.week_select .controlgroup {
+	max-width: 115px;
+	margin: 0 auto;
+}
+.week_select .controlgroup .reload {
+	padding:1px 0 4px;
+}
+.results_scroll {
+	height: 230px;
+	overflow-y: scroll;
+}
+
+.team1{
+	padding-right:10px;
+}
+.results table{
+	text-align: center;
+	margin: 0 auto;
+}
+.results td{
+	padding:5px 2px;
+	border-top:1px solid;
+	border-bottom: 1px solid;
+	font-size:12px;
+}
+.results td.score{
+	border:1px solid;
+}
+.results td.score.win{
+	background-color:green;
+	color:white;
+}
+.team1{
+	text-align:right;
+}
+.team2{
+	text-align:left;
+}
+.stats table{
+	width:100%;
+	text-align:center;
+}
+.team2 .results td{
+	text-align:right;
+}
+.team2{
+	padding-left:10px;
+	
+	
+}
+.autosubmit div.ui-slider-switch{ width: 11em }

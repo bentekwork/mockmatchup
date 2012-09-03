@@ -1,0 +1,28 @@
+security:
+    encoders:
+        Symfony\Component\Security\Core\User\User: plaintext
+
+    role_hierarchy:
+        ROLE_ADMIN:       ROLE_USER
+            
+    providers:  
+        chain_provider:
+            providers: [in_memory, main]
+
+        in_memory:
+            users:
+                admin: { password: ben, roles: 'ROLE_ADMIN'}
+                
+        main:
+           entity: { class: Mock\UserBundle\Entity\User, property: username }
+        
+    firewalls:
+       secured_area:
+           pattern:    ^/
+           anonymous: ~
+           form_login:
+                 login_path:   /signin
+                 default_target_path: /matchups
+           logout: 
+               path:   /logout
+               target: /signin

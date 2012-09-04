@@ -28,9 +28,9 @@ class DefaultController extends Controller
 		$week = $request->request->get('week');
 		$left_team_key = $request->request->get('left_team_key');
 		$right_team_key = $request->request->get('right_team_key');
+		$key = $this->container->getParameter('oauth_key');
+		$secret = $this->container->getParameter('oauth_secret');
 		if($league and $week and $left_team_key and $right_team_key){
-			$key = 'dj0yJmk9ZEhxZHN5ZURMcm5CJmQ9WVdrOVFWTlhPR1pPTlRRbWNHbzlNVEF5TnpFNE1EWTJNZy0tJnM9Y29uc3VtZXJzZWNyZXQmeD1lMA--';
-			$secret = '365a9b575ca0ae12b500edd14dbd3738b7347672';
 			$user = $this->get('security.context')->getToken()->getUser();
 			$o = new MockOauth($key, $secret);
 			$o->refreshAccesstoken($user->getAccessToken(), $user->getAccessTokenSecret(), $user->getOauthSessionHandle(), '');
@@ -50,8 +50,6 @@ class DefaultController extends Controller
 								)
 							);
 		} elseif ($league) {
-			$key = 'dj0yJmk9ZEhxZHN5ZURMcm5CJmQ9WVdrOVFWTlhPR1pPTlRRbWNHbzlNVEF5TnpFNE1EWTJNZy0tJnM9Y29uc3VtZXJzZWNyZXQmeD1lMA--';
-			$secret = '365a9b575ca0ae12b500edd14dbd3738b7347672';
 			$user = $this->get('security.context')->getToken()->getUser();
 			$o = new MockOauth($key, $secret);
 			$o->refreshAccesstoken($user->getAccessToken(), $user->getAccessTokenSecret(), $user->getOauthSessionHandle(), '');
@@ -95,8 +93,8 @@ class DefaultController extends Controller
 			return $this->redirect('/matchup');
 			
 		}
-		$key = 'dj0yJmk9ZEhxZHN5ZURMcm5CJmQ9WVdrOVFWTlhPR1pPTlRRbWNHbzlNVEF5TnpFNE1EWTJNZy0tJnM9Y29uc3VtZXJzZWNyZXQmeD1lMA--';
-		$secret = '365a9b575ca0ae12b500edd14dbd3738b7347672';
+		$key = $this->container->getParameter('oauth_key');
+		$secret = $this->container->getParameter('oauth_secret');
 		$o = new MockOauth($key, $secret);
 		$o->refreshAccesstoken($user->getAccessToken(), $user->getAccessTokenSecret(), $user->getOauthSessionHandle(), '');
 		$matchup = new Matchup($key, $secret, $o->access_token, $o->access_token_secret);		

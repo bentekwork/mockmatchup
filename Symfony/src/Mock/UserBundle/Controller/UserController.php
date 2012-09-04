@@ -41,8 +41,8 @@ class UserController extends Controller
      * @Template()
      */
     public function loginAction(){
-		$key = 'dj0yJmk9ZEhxZHN5ZURMcm5CJmQ9WVdrOVFWTlhPR1pPTlRRbWNHbzlNVEF5TnpFNE1EWTJNZy0tJnM9Y29uc3VtZXJzZWNyZXQmeD1lMA--';
-		$secret = '365a9b575ca0ae12b500edd14dbd3738b7347672';
+		$key = $this->container->getParameter('oauth_key');
+		$secret = $this->container->getParameter('oauth_secret');
    		$request = $this->getRequest();
 		$identifier = $request->request->get('openid_identifier');
 		$existing_user = '';
@@ -97,8 +97,8 @@ class UserController extends Controller
      * @Template()
      */
     public function registerAction(){
-		$key = 'dj0yJmk9ZEhxZHN5ZURMcm5CJmQ9WVdrOVFWTlhPR1pPTlRRbWNHbzlNVEF5TnpFNE1EWTJNZy0tJnM9Y29uc3VtZXJzZWNyZXQmeD1lMA--';
-		$secret = '365a9b575ca0ae12b500edd14dbd3738b7347672';
+		$key = $this->container->getParameter('oauth_key');
+		$secret = $this->container->getParameter('oauth_secret');
    		$request = $this->getRequest();
 		$identifier = $request->request->get('openid_identifier');
 		$openid = new LightOpenID('mock.dnsalias.com', $key);

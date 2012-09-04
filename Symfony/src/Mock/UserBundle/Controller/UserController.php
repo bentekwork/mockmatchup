@@ -57,7 +57,8 @@ class UserController extends Controller
 			$em = $this->getDoctrine()->getEntityManager();
 			$existing_user = $em->getRepository('MockUserBundle:User')->findOneByUsername($identifier);
 		} 
-		$openid = new LightOpenID('mock.dnsalias.com', $key);
+		$openid_domain = $this->container->getParameter('oauth_domain');
+		$openid = new LightOpenID($openid_domain, $key);
 		//3rd if the user does exist in db attempt to authenticate them with yahoo
 		if($existing_user or (is_object($openid) and !$identifier and $openid->mode)){
 		 	if($identifier and !$openid->mode){
@@ -101,7 +102,8 @@ class UserController extends Controller
 		$secret = $this->container->getParameter('oauth_secret');
    		$request = $this->getRequest();
 		$identifier = $request->request->get('openid_identifier');
-		$openid = new LightOpenID('mock.dnsalias.com', $key);
+		$openid_domain = $this->container->getParameter('oauth_domain');
+		$openid = new LightOpenID($openid_domain, $key);
 	   	$form = 'balls';
 	 	if($identifier && !$openid->mode){
 			$openid->identity = $identifier;

@@ -59,6 +59,16 @@
 			<h3>{{total.left_team}} - {{total.right_team}}</h3>
 		</div>
 		<div class="results_scroll">
+			<div class="mask_results">
+			</div>
+			<div class="mask_button_wrap" >
+				<div class="control-group">
+					<div class="controls">
+						<button class="mask_button" data-ajax="false" data-mini="true" type="submit">Refresh</button>
+					</div>
+				</div>
+			</div>
+
 			<table>
 			{% for score in scoreboard %}
 				{% if score.stat_winner == 'left_team' %}

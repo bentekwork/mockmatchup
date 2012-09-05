@@ -32,6 +32,10 @@ $(document).bind('pageinit', function(){
 			    events: {         // custom callbacks
 			        start: function(i){
 						$('.team1 .show_name').css({opacity: 0, 'font-size': '3px'});
+						$('.mask_results').show();
+						$('.mask_button_wrap').show();
+						
+						
 					},
 			        stop: function(i){			
 						var newvalue = $('.thumb ul li').eq(i).data('team');
@@ -80,6 +84,10 @@ $(document).bind('pageinit', function(){
 			    events: {         // custom callbacks
 			        start: function(i){
 						$('.team2 .show_name').css({opacity: 0, 'font-size': '3px'});
+						$('.mask_results').show();
+						$('.mask_button_wrap').show();
+						
+						
 					},
 			        stop: function(i){
 						var newvalue = $('.thumb2 ul li').eq(i).data('team');
@@ -102,9 +110,14 @@ $(document).bind('pageinit', function(){
 			});
 			
 			$("#week").change(function(){ 
-				$('#mockmatchform').submit();
-			  
+				$('.mask_results').show();
+				$('.mask_button_wrap').show();
 			});
+			$('.mask_button').click(function(){
+				$('#mockmatchform').submit();			  
+				
+			});
+
 //	}
 	
 });

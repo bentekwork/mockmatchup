@@ -99,6 +99,9 @@ table {
 .team1{
 	padding-right:10px;
 }
+.results {
+	position:relative;
+}
 .results table{
 	text-align: center;
 	margin: 0 auto;
@@ -134,4 +137,34 @@ table {
 	
 	
 }
-.autosubmit div.ui-slider-switch{ width: 11em }
+.mask_results {
+	background:#000;
+	opacity:.7;
+	height:100%;
+	width:100%;
+	position:absolute;
+	text-align:center;
+	display:none;
+}
+.mask_button_wrap{
+	position:absolute;
+	width:100%;
+	display:none;
+	text-align:center;
+}
+.mask_button_wrap .control-group{
+	max-width: 110px;
+	margin: 0 auto;
+	position:relative;
+	top:70px;
+}
+/*.mask_button.ui-link{
+	background:#ffffff;
+	padding:10px;
+	border-radius:10px;
+	color:#000000;
+	position:relative;
+	top:80px;
+	font-size:12px;
+	text-shadow:none;
+}*/

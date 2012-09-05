@@ -47,10 +47,7 @@ $(document).bind('pageinit', function(){
 			
 			$('.thumb ul li').click(function(){
 				var clickedIndex = $('.thumb ul li').index($(this));
-				leftcarousel.update({
-					initialSlide: clickedIndex,
-					
-				});
+				leftcarousel.goTo(clickedIndex);
 				var newvalue = $(this).data('team');
 				var teamname = $(this).attr('title');
 				$('#left_team').val(newvalue);
@@ -96,10 +93,7 @@ $(document).bind('pageinit', function(){
 			
 			$('.thumb2 ul li').click(function(){
 				var clickedIndex = $('.thumb2 ul li').index($(this));
-				carousel.update({
-					initialSlide: clickedIndex,
-					
-				});
+				carousel.goTo(clickedIndex);
 				var newvalue = $(this).data('team');
 				var teamname = $(this).attr('title');
 				$('#right_team').val(newvalue);

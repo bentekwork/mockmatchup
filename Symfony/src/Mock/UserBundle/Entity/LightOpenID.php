@@ -642,7 +642,6 @@ class LightOpenID
             'openid.return_to'   => $this->returnUrl,
             'openid.realm'       => $this->trustRoot,
         );
-		var_dump($params);
 		if($register) {
 			$params['openid.ns.oauth'] = 'http://specs.openid.net/extensions/oauth/1.0';
 			$params['openid.oauth.consumer'] = $this->consumer;

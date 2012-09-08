@@ -642,6 +642,7 @@ class LightOpenID
             'openid.return_to'   => $this->returnUrl,
             'openid.realm'       => $this->trustRoot,
         );
+		var_dump($params);
 		if($register) {
 			$params['openid.ns.oauth'] = 'http://specs.openid.net/extensions/oauth/1.0';
 			$params['openid.oauth.consumer'] = $this->consumer;
@@ -678,7 +679,7 @@ class LightOpenID
     function authUrl($immediate = false, $register = false)
     {
         if ($this->setup_url && !$immediate) return $this->setup_url;
-        if (!$this->server) $this->discover($this->identity);
+        if (!$this->server) $this->discover('https://me.yahoo.com');
 
         if ($this->version == 2) {
             return $this->authUrl_v2($immediate, $register);

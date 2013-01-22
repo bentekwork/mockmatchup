@@ -49,13 +49,13 @@ class DefaultController extends Controller
 								'selected_week' => $week 
 								)
 							);
-		} elseif ($league) {
+		} elseif ($league) {			
 			$user = $this->get('security.context')->getToken()->getUser();
 			$o = new MockOauth($key, $secret);
 			$o->refreshAccesstoken($user->getAccessToken(), $user->getAccessTokenSecret(), $user->getOauthSessionHandle(), '');
 		
 			$matchup = new Matchup($key, $secret, $o->access_token, $o->access_token_secret);		
-			$matchup->buildMatchup($league, 1, $league.'.t.1', $league.'.t.1');
+			$matchup->buildMatchup($league, NULL, $league.'.t.1', $league.'.t.1');
 			$matchup->buildScoreboard();
 			
 			return $this->render('MockMatchBundle:Default:index.html.twig', array(

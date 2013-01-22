@@ -28,7 +28,13 @@ class Matchup
 
   function buildMatchup($league, $week, $left_team_key, $right_team_key){
 	$matchup = new MockOauth($this->key, $this->secret);
-	$league_request = $matchup->getRequest($this->access_token, $this->access_token_secret, 'http://fantasysports.yahooapis.com/fantasy/v2/league/'.$league.';out=teams,settings');
+	if(!$week){
+		$league_request = $matchup->getRequest($this->access_token, $this->access_token_secret, 'http://fantasysports.yahooapis.com/fantasy/v2/league/'.$league.';out=teams,settings');
+		$teams_xml = simplexml_load_string($league_request);
+		$week = (string)$teams_xml->league->current_week;
+	} else {
+		$league_request = $matchup->getRequest($this->access_token, $this->access_token_secret, 'http://fantasysports.yahooapis.com/fantasy/v2/league/'.$league.';out=teams,settings');
+	}
 	$left_request = $matchup->getRequest($this->access_token, $this->access_token_secret, 'http://fantasysports.yahooapis.com/fantasy/v2/team/'.$left_team_key.'/stats;type=week;week='.$week.'');
 	$right_request = $matchup->getRequest($this->access_token, $this->access_token_secret, 'http://fantasysports.yahooapis.com/fantasy/v2/team/'.$right_team_key.'/stats;type=week;week='.$week.'');	
 	if($league_request and $left_request and $right_request){

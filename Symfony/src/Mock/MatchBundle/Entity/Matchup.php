@@ -36,8 +36,11 @@ class Matchup
 		$left_xml = simplexml_load_string($left_request);
 		$right_xml = simplexml_load_string($right_request);
 		for($i=0; $i <= (string)$teams_xml->league->current_week; $i++){
-			$weeks[] = array('num' => $i, 'named' => 'Week '.$i); 
+			if($i >= (string)$teams_xml->league->start_week){
+				$weeks[] = array('num' => $i, 'named' => 'Week '.$i); 
+			}
 		}
+		
 		$this->weeks = $weeks;
 		foreach($teams_xml->league->teams->team as $team){
 			$teams[] = array(
